@@ -1,4 +1,4 @@
-[
+﻿window.CLUBES = [
   {"slug": "vasco-da-gama", "nome": "Vasco da Gama", "tag": "VAS", "escudo": "assets/logos/times/vasco-da-gama.svg"},
   {"slug": "flamengo", "nome": "Flamengo", "tag": "FLA", "escudo": "assets/logos/times/flamengo.svg"},
   {"slug": "fluminense", "nome": "Fluminense", "tag": "FLU", "escudo": "assets/logos/times/fluminense.svg"},
@@ -35,3 +35,4 @@
   {"slug": "boca-juniors", "nome": "Boca Juniors", "tag": "BOC", "escudo": "assets/logos/times/boca-juniors.svg"},
   {"slug": "independiente-santa-fe", "nome": "Independiente Santa Fe", "tag": "SFE", "escudo": "assets/logos/times/independiente-santa-fe.svg"}
 ]
+;

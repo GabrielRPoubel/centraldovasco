@@ -6,6 +6,7 @@
   <title>Central do Vasco — Ao vivo, jogos e notícias</title>
   <meta name="description" content="Central do Vasco: placar ao vivo, próximos jogos, tabela e notícias em tempo real.">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/jogos.css">
 </head>
 <body>
   <div class="bg-glow"></div>
@@ -27,39 +28,33 @@
   </header>
 
   <main>
-    <section class="hero card">
+    <section class="hero card" id="hero">
       <div class="hero-top">
-        <span class="pill">Brasileirão Série A • Rodada 28</span>
-        <span class="pill live-pill"><i></i>67' 2º TEMPO</span>
+        <span class="pill"><img class="pill-ico" src="assets/logos/competicoes/sul-americana-2026.svg" alt="">Copa Sul-Americana • Semifinal • Ida</span>
+        <span class="pill">QUA, 14 OUT • PREV.</span>
       </div>
 
       <div class="teams">
         <div class="team">
-          <div class="shield vasco">VAS</div>
-          <strong>Vasco</strong>
+          <div class="shield"><img src="assets/logos/times/boca-juniors.svg" alt="Boca Juniors"></div>
+          <strong>Boca Juniors</strong>
           <small>Casa</small>
         </div>
         <div class="placar">
-          <div class="gols">2 <span>–</span> 1</div>
-          <small>São Januário • 21.480 presentes</small>
+          <div class="gols vs">×</div>
+          <small>La Bombonera • Buenos Aires</small>
         </div>
         <div class="team">
-          <div class="shield adv">ADV</div>
-          <strong>Adversário</strong>
+          <div class="shield"><img src="assets/logos/times/vasco-da-gama.svg" alt="Vasco"></div>
+          <strong>Vasco da Gama</strong>
           <small>Fora</small>
         </div>
       </div>
 
-      <div class="stats">
-        <div><span>Posse 54%</span><div class="bar"><b style="width:54%"></b></div></div>
-        <div><span>Finalizações 12 – 7</span><div class="bar"><b style="width:63%"></b></div></div>
-        <div><span>xG 1.8 – 0.9</span><div class="bar"><b style="width:66%"></b></div></div>
-      </div>
-
       <div class="hero-actions">
-        <button class="btn primary">Escalação</button>
-        <button class="btn">Lance a lance</button>
-        <button class="btn">Estatísticas</button>
+        <button class="btn primary">Prévia do jogo</button>
+        <button class="btn">Chaveamento</button>
+        <button class="btn">Campanha</button>
       </div>
     </section>
 
@@ -70,9 +65,9 @@
     </div>
 
     <section id="tab-jogos" class="panel show">
-      <div class="row"><div><strong>Vasco x Flamengo</strong><small>Clássico • Brasileirão</small></div><span class="date">SÁB<br>18:30</span></div>
-      <div class="row"><div><strong>Vasco x Palmeiras</strong><small>Brasileirão</small></div><span class="date">QUA<br>21:30</span></div>
-      <div class="row done"><div><strong>Vasco 2 x 1 Bahia</strong><small>Fim de jogo</small></div><span class="date">FIM</span></div>
+      <div id="filters" class="filters"></div>
+      <div id="jogos-up"></div>
+      <div id="jogos-down"></div>
     </section>
 
     <section id="tab-tabela" class="panel">
@@ -99,6 +94,9 @@
   </main>
 
   <footer>© Central do Vasco — feito de vascaíno para vascaíno</footer>
+  <script src="assets/data/clubes.js"></script>
+  <script src="assets/data/jogos.js"></script>
   <script src="app.js"></script>
+  <script src="assets/jogos.js"></script>
 </body>
 </html>

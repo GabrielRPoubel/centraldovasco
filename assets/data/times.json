@@ -130,5 +130,13 @@
   {
     "slug": "paysandu",
     "sigla": "PAY"
+  },
+  {
+    "slug": "boca-juniors",
+    "sigla": "BOC"
+  },
+  {
+    "slug": "independiente-santa-fe",
+    "sigla": "SFE"
   }
 ]

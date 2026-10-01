@@ -1,0 +1,81 @@
+/* ===== Filtros por competição ===== */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.chip img { width: 18px; height: 18px; }
+.chip:hover { border-color: var(--gold); color: #fff; }
+.chip.active { background: #fff; color: #000; border-color: #fff; }
+.chip.active:hover { color: #000; }
+
+/* ===== Títulos de seção ===== */
+.sec-title {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 1.2px;
+  color: var(--muted); font-weight: 800; margin: 18px 0 10px;
+}
+
+/* ===== Linha de jogo ===== */
+.game {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  background: var(--card); border: 1px solid var(--line);
+  border-left: 3px solid transparent;
+  border-radius: 14px; padding: 12px 14px; margin-bottom: 10px;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.game:hover { border-color: rgba(212, 175, 55, 0.4); transform: translateY(-1px); }
+.game.f { opacity: 0.75; }
+.game.f:hover { opacity: 1; }
+.game.v { border-left-color: var(--gold); }
+.game.e { border-left-color: #555; }
+.game.d { border-left-color: var(--red); }
+
+.g-teams { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.g-esc { width: 30px; height: 30px; border-radius: 50%; background: #000; flex-shrink: 0; }
+.g-txt { min-width: 0; }
+.g-txt strong { display: block; font-size: 14.5px; font-weight: 700; line-height: 1.3; }
+.g-txt strong b { font-weight: 800; }
+.g-txt strong b.eu { color: var(--gold); }
+.g-txt strong em { font-style: normal; color: var(--muted); font-weight: 600; }
+.g-txt small {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  color: var(--muted); font-size: 12px; margin-top: 3px; line-height: 1.4;
+}
+.g-ico { width: 14px; height: 14px; }
+.g-txt .obs { font-style: normal; color: var(--gold); opacity: 0.9; }
+
+.game .date { flex-shrink: 0; font-size: 12.5px; line-height: 1.4; text-align: right; }
+.game .date.tbd { color: var(--muted); font-size: 10.5px; letter-spacing: 0.6px; }
+
+.empty {
+  color: var(--muted); text-align: center; padding: 26px 14px; font-size: 14px;
+  background: var(--card); border: 1px dashed var(--line); border-radius: 14px;
+}
+
+/* ===== Hero (próximo jogo) ===== */
+.shield img { width: 100%; height: 100%; object-fit: cover; border-radius: 17px; display: block; }
+.placar .gols.vs { color: var(--gold); }
+.pill-ico { width: 14px; height: 14px; vertical-align: -2px; margin-right: 6px; }
+
+.hero-form {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin: 6px 0 18px; font-size: 12px; color: var(--muted); font-weight: 600;
+}
+.form-dots { display: flex; gap: 6px; }
+.fd {
+  width: 24px; height: 24px; border-radius: 7px;
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 900; font-style: normal;
+}
+.fd.v { background: rgba(212, 175, 55, 0.14); color: var(--gold); border: 1px solid rgba(212, 175, 55, 0.5); }
+.fd.e { background: #1a1a1c; color: var(--muted); border: 1px solid var(--line); }
+.fd.d { background: rgba(255, 59, 48, 0.12); color: var(--red); border: 1px solid rgba(255, 59, 48, 0.4); }
+
+@media (max-width: 640px) {
+  .g-esc { width: 26px; height: 26px; }
+  .g-txt strong { font-size: 13.5px; }
+  .chip { padding: 7px 11px; font-size: 12px; }
+}
