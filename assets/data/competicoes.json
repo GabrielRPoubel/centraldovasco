@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "carioca-2026",
+    "sigla": "CAR",
+    "nome": "Carioca 2026"
+  },
+  {
+    "slug": "brasileirao-2026",
+    "sigla": "BRA",
+    "nome": "Brasileirao 2026"
+  },
+  {
+    "slug": "copa-do-brasil-2026",
+    "sigla": "CDB",
+    "nome": "Copa do Brasil 2026"
+  },
+  {
+    "slug": "sul-americana-2026",
+    "sigla": "SUL",
+    "nome": "Sul-Americana 2026"
+  }
+]

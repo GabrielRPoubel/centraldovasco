@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "vasco-da-gama",
+    "sigla": "VAS"
+  },
+  {
+    "slug": "flamengo",
+    "sigla": "FLA"
+  },
+  {
+    "slug": "fluminense",
+    "sigla": "FLU"
+  },
+  {
+    "slug": "botafogo",
+    "sigla": "BOT"
+  },
+  {
+    "slug": "bangu",
+    "sigla": "BAN"
+  },
+  {
+    "slug": "boavista-rj",
+    "sigla": "BOA"
+  },
+  {
+    "slug": "madureira",
+    "sigla": "MAD"
+  },
+  {
+    "slug": "marica",
+    "sigla": "MAR"
+  },
+  {
+    "slug": "nova-iguacu",
+    "sigla": "NIG"
+  },
+  {
+    "slug": "portuguesa-rj",
+    "sigla": "POR"
+  },
+  {
+    "slug": "sampaio-correa-rj",
+    "sigla": "SAM"
+  },
+  {
+    "slug": "volta-redonda",
+    "sigla": "VOL"
+  },
+  {
+    "slug": "athletico-paranaense",
+    "sigla": "CAP"
+  },
+  {
+    "slug": "atletico-mineiro",
+    "sigla": "CAM"
+  },
+  {
+    "slug": "bahia",
+    "sigla": "BAH"
+  },
+  {
+    "slug": "chapecoense",
+    "sigla": "CHA"
+  },
+  {
+    "slug": "corinthians",
+    "sigla": "COR"
+  },
+  {
+    "slug": "coritiba",
+    "sigla": "CFC"
+  },
+  {
+    "slug": "cruzeiro",
+    "sigla": "CRU"
+  },
+  {
+    "slug": "gremio",
+    "sigla": "GRE"
+  },
+  {
+    "slug": "internacional",
+    "sigla": "INT"
+  },
+  {
+    "slug": "mirassol",
+    "sigla": "MIR"
+  },
+  {
+    "slug": "palmeiras",
+    "sigla": "PAL"
+  },
+  {
+    "slug": "red-bull-bragantino",
+    "sigla": "RBB"
+  },
+  {
+    "slug": "remo",
+    "sigla": "REM"
+  },
+  {
+    "slug": "santos",
+    "sigla": "SAN"
+  },
+  {
+    "slug": "sao-paulo",
+    "sigla": "SAO"
+  },
+  {
+    "slug": "vitoria",
+    "sigla": "VIT"
+  },
+  {
+    "slug": "olimpia",
+    "sigla": "OLI"
+  },
+  {
+    "slug": "audax-italiano",
+    "sigla": "AUD"
+  },
+  {
+    "slug": "barracas-central",
+    "sigla": "BAR"
+  },
+  {
+    "slug": "independiente-medellin",
+    "sigla": "DIM"
+  },
+  {
+    "slug": "paysandu",
+    "sigla": "PAY"
+  }
+]
