@@ -86,8 +86,8 @@ main { max-width: 760px; margin: 0 auto; padding: 20px 16px 40px; }
 .shield {
   width: 64px; height: 64px; border-radius: 18px;
   display: grid; place-items: center; font-weight: 900;
-  background: linear-gradient(145deg, #fff, #bbb);
-  color: #000; border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.06);
+  color: #000; border: 1px solid var(--line);
 }
 .shield.adv { background: linear-gradient(145deg, #222, #000); color: #fff; border-color: var(--line); }
 

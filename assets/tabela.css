@@ -25,7 +25,7 @@
 .t-row:hover { background: rgba(255, 255, 255, 0.04); }
 .t-pos { font-weight: 800; color: var(--muted); text-align: center; font-size: 13px; }
 .t-team { display: flex; align-items: center; gap: 9px; min-width: 0; }
-.t-team img { width: 24px; height: 24px; border-radius: 50%; background: #000; flex-shrink: 0; }
+.t-team img { width: 24px; height: 24px; border-radius: 5px; object-fit: contain; flex-shrink: 0; }
 .t-team b { font-weight: 700; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .t-pts { font-weight: 900; text-align: center; }
 .t-j, .t-sg { text-align: center; color: var(--muted); font-size: 13px; }

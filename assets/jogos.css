@@ -34,7 +34,7 @@
 .game.d { border-left-color: var(--red); }
 
 .g-teams { display: flex; align-items: center; gap: 7px; min-width: 0; }
-.g-esc { width: 30px; height: 30px; border-radius: 50%; background: #000; flex-shrink: 0; }
+.g-esc { width: 30px; height: 30px; border-radius: 7px; object-fit: contain; flex-shrink: 0; }
 .g-txt { min-width: 0; }
 .g-txt strong { display: block; font-size: 14.5px; font-weight: 700; line-height: 1.3; }
 .g-txt strong b { font-weight: 800; }
@@ -56,7 +56,7 @@
 }
 
 /* ===== Hero (próximo jogo) ===== */
-.shield img { width: 100%; height: 100%; object-fit: cover; border-radius: 17px; display: block; }
+.shield img { width: 100%; height: 100%; object-fit: contain; padding: 7px; display: block; }
 .placar .gols.vs { color: var(--gold); }
 .pill-ico { width: 14px; height: 14px; vertical-align: -2px; margin-right: 6px; }
 
