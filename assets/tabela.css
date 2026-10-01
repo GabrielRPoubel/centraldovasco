@@ -1,0 +1,62 @@
+/* ===== Classificação (Brasileirão) ===== */
+.t-head-pill {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12.5px; font-weight: 800; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px;
+}
+.t-head-pill img { width: 18px; height: 18px; }
+
+.t-cols, .t-row {
+  display: grid;
+  grid-template-columns: 30px 1fr 38px 32px 46px;
+  align-items: center; gap: 6px;
+  padding: 9px 10px;
+}
+.t-cols {
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--muted); font-weight: 800; border-bottom: 1px solid var(--line);
+}
+.t-cols span:not(:nth-child(2)) { text-align: center; }
+
+.t-row {
+  border-radius: 10px; border-left: 3px solid transparent;
+  font-size: 14px; transition: background 0.15s;
+}
+.t-row:hover { background: rgba(255, 255, 255, 0.04); }
+.t-pos { font-weight: 800; color: var(--muted); text-align: center; font-size: 13px; }
+.t-team { display: flex; align-items: center; gap: 9px; min-width: 0; }
+.t-team img { width: 24px; height: 24px; border-radius: 50%; background: #000; flex-shrink: 0; }
+.t-team b { font-weight: 700; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.t-pts { font-weight: 900; text-align: center; }
+.t-j, .t-sg { text-align: center; color: var(--muted); font-size: 13px; }
+
+/* Zonas */
+.zona-lib { border-left-color: var(--gold); }
+.zona-lib .t-pos, .zona-lib .t-pts { color: var(--gold); }
+.zona-sula { border-left-color: #4a9eff; }
+.zona-sula .t-pos, .zona-sula .t-pts { color: #4a9eff; }
+.zona-rebaix { border-left-color: var(--red); }
+.zona-rebaix .t-pos, .zona-rebaix .t-pts { color: var(--red); }
+
+.t-row.me {
+  background: rgba(212, 175, 55, 0.1);
+  border-left-color: var(--gold);
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.35);
+}
+.t-row.me .t-team b { color: var(--gold); }
+
+.t-legend {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  margin-top: 14px; font-size: 11.5px; color: var(--muted);
+}
+.t-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.t-legend i { width: 9px; height: 9px; border-radius: 2px; }
+.t-legend .lib { background: var(--gold); }
+.t-legend .sula { background: #4a9eff; }
+.t-legend .rebaix { background: var(--red); }
+.t-upd { display: block; margin-top: 8px; font-size: 11px; color: var(--muted); opacity: 0.7; }
+
+@media (max-width: 640px) {
+  .t-cols, .t-row { grid-template-columns: 26px 1fr 34px 30px 42px; padding: 8px 6px; gap: 4px; }
+  .t-team b { font-size: 13px; }
+}

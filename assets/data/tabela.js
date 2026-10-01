@@ -1,0 +1,23 @@
+﻿window.TABELA = [
+  {"pos": 1, "slug": "flamengo", "pts": 60, "j": 28, "v": 18, "e": 6, "d": 4, "gp": 55, "gc": 23, "sg": 32, "zona": "lib"},
+  {"pos": 2, "slug": "palmeiras", "pts": 57, "j": 28, "v": 16, "e": 9, "d": 3, "gp": 47, "gc": 21, "sg": 26, "zona": "lib"},
+  {"pos": 3, "slug": "athletico-paranaense", "pts": 49, "j": 28, "v": 14, "e": 7, "d": 7, "gp": 43, "gc": 32, "sg": 11, "zona": "lib"},
+  {"pos": 4, "slug": "fluminense", "pts": 48, "j": 28, "v": 13, "e": 9, "d": 6, "gp": 44, "gc": 36, "sg": 8, "zona": "lib"},
+  {"pos": 5, "slug": "bahia", "pts": 46, "j": 28, "v": 12, "e": 10, "d": 6, "gp": 43, "gc": 35, "sg": 8, "zona": "lib"},
+  {"pos": 6, "slug": "cruzeiro", "pts": 45, "j": 28, "v": 13, "e": 6, "d": 9, "gp": 42, "gc": 40, "sg": 2, "zona": "sula"},
+  {"pos": 7, "slug": "atletico-mineiro", "pts": 40, "j": 27, "v": 11, "e": 7, "d": 9, "gp": 36, "gc": 32, "sg": 4, "zona": ""},
+  {"pos": 8, "slug": "santos", "pts": 38, "j": 27, "v": 10, "e": 8, "d": 9, "gp": 41, "gc": 40, "sg": 1, "zona": ""},
+  {"pos": 9, "slug": "coritiba", "pts": 38, "j": 28, "v": 10, "e": 8, "d": 10, "gp": 37, "gc": 43, "sg": -6, "zona": ""},
+  {"pos": 10, "slug": "red-bull-bragantino", "pts": 36, "j": 27, "v": 10, "e": 6, "d": 11, "gp": 33, "gc": 31, "sg": 2, "zona": ""},
+  {"pos": 11, "slug": "sao-paulo", "pts": 36, "j": 27, "v": 10, "e": 6, "d": 11, "gp": 32, "gc": 30, "sg": 2, "zona": ""},
+  {"pos": 12, "slug": "botafogo", "pts": 35, "j": 28, "v": 9, "e": 8, "d": 11, "gp": 41, "gc": 45, "sg": -4, "zona": ""},
+  {"pos": 13, "slug": "vitoria", "pts": 33, "j": 28, "v": 9, "e": 6, "d": 13, "gp": 28, "gc": 42, "sg": -14, "zona": ""},
+  {"pos": 14, "slug": "corinthians", "pts": 32, "j": 28, "v": 8, "e": 8, "d": 12, "gp": 29, "gc": 32, "sg": -3, "zona": ""},
+  {"pos": 15, "slug": "mirassol", "pts": 32, "j": 28, "v": 8, "e": 8, "d": 12, "gp": 33, "gc": 42, "sg": -9, "zona": ""},
+  {"pos": 16, "slug": "vasco-da-gama", "pts": 31, "j": 27, "v": 8, "e": 7, "d": 12, "gp": 34, "gc": 41, "sg": -7, "zona": ""},
+  {"pos": 17, "slug": "gremio", "pts": 29, "j": 28, "v": 7, "e": 8, "d": 13, "gp": 30, "gc": 38, "sg": -8, "zona": "rebaix"},
+  {"pos": 18, "slug": "internacional", "pts": 28, "j": 28, "v": 6, "e": 10, "d": 12, "gp": 30, "gc": 36, "sg": -6, "zona": "rebaix"},
+  {"pos": 19, "slug": "remo", "pts": 23, "j": 28, "v": 5, "e": 8, "d": 15, "gp": 32, "gc": 47, "sg": -15, "zona": "rebaix"},
+  {"pos": 20, "slug": "chapecoense", "pts": 18, "j": 27, "v": 3, "e": 9, "d": 15, "gp": 29, "gc": 53, "sg": -24, "zona": "rebaix"}
+]
+;
