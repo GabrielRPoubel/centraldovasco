@@ -153,16 +153,20 @@
     if (soVasco && casa !== "vasco-da-gama" && visitante !== "vasco-da-gama") return null; // só jogos do Vasco
     if (soVasco && (!casa || !visitante))
       console.info("[CV] time fora do banco (id):", h.team.id, a.team.id, h.team.displayName, "x", a.team.displayName);
-    // status: agendas vêm sem description — detecta por state/abreviação ou data passada
+    // status: agendas vêm sem description — detecta por state/abreviação, placar ou data passada
     const st = (e.status && e.status.type) || {};
     const state = (e.status && e.status.state) || "";
     const desc = st.description || "";
+    const temPlacar =
+      !!(h.score && (h.score.displayValue || h.score.displayValue === 0)) &&
+      !!(a.score && (a.score.displayValue || a.score.displayValue === 0));
+    const ehAoVivo = state === "in" || st.abbreviation === "I" || /progress|half|period/i.test(desc);
     const fim =
       state === "post" ||
       st.abbreviation === "F" ||
-      /final/i.test(desc) ||
+      /final|ft\b|full time/i.test(desc) ||
+      (temPlacar && !ehAoVivo) || // jogo com placar no placar é encerrado (não vale p/ ao vivo)
       (!state && !desc && new Date(e.date).getTime() + 72e5 < Date.now());
-    const vivo = state === "in" || st.abbreviation === "I" || /progress|half|period/i.test(desc);
     const g = {
       comp: comp,
       casa: casa,
@@ -486,6 +490,11 @@
         a.obs = s.obs || "";
         if (s.pen) a.pen = s.pen;
         if (s.local && !a.local) a.local = s.local;
+        // garantia de resultado: se a API veio 0–0 mas o estático tem placar, adota o do estático
+        if (s.gc != null && s.gv != null && (s.gc !== 0 || s.gv !== 0) && a.gc === 0 && a.gv === 0) {
+          a.gc = s.gc;
+          a.gv = s.gv;
+        }
       } else {
         out.push(s); // estático sem par na API (ex.: datas ainda não publicadas)
       }
