@@ -13,8 +13,8 @@ const VASCO = "vasco-da-gama";
   if (!jogos) jogos = await (await fetch("assets/data/jogos.json")).json();
 
   const map = Object.fromEntries(clubes.map((c) => [c.slug, c]));
-  const nome = (s) => (map[s] && map[s].nome) || s;
-  const escudo = (s) => (map[s] && map[s].escudo) || "";
+  const nome = (s) => (map[s] && map[s].nome) || s || "?";
+  const escudo = (s) => (map[s] && map[s].escudo) || "assets/logos/times/_default.svg";
   const dia = (g) => (g.data ? DIA[new Date(g.data + "T12:00:00").getDay()] : "");
   const res = (g) => {
     const vc = g.casa === VASCO ? g.gc : g.gv;
@@ -42,12 +42,13 @@ const VASCO = "vasco-da-gama";
 
   function row(g) {
     const cls = g.status === "encerrado" ? "f " + res(g) : "";
-    const meta = `${COMPS[g.comp].nome} • ${g.fase}${g.obs ? ` <em class="obs">${g.obs}</em>` : ""}`;
+    const cp = COMPS[g.comp] || { nome: g.comp, ico: "" };
+    const meta = `${cp.nome}${g.fase ? " • " + g.fase : ""}${g.obs ? ` <em class="obs">${g.obs}</em>` : ""}`;
     return `<div class="game ${cls}" title="${g.local || ""}">
       <div class="g-teams">
         <img class="g-esc" src="${escudo(g.casa)}" alt="" loading="lazy">
         <img class="g-esc" src="${escudo(g.visitante)}" alt="" loading="lazy">
-        <div class="g-txt">${titleLine(g)}<small><img class="g-ico" src="${COMPS[g.comp].ico}" alt="">${meta}</small></div>
+        <div class="g-txt">${titleLine(g)}<small><img class="g-ico" src="${cp.ico}" alt="">${meta}</small></div>
       </div>
       ${dateBlock(g)}
     </div>`;
@@ -106,11 +107,11 @@ const VASCO = "vasco-da-gama";
     const form = recentes
       .map((g) => { const r = res(g); return `<i class="fd ${r}">${letra(r)}</i>`; })
       .join("");
-    const comp = COMPS[prox.comp];
+    const comp = COMPS[prox.comp] || { nome: prox.comp, ico: "" };
     const quando = `${prox.data ? dia(prox) + ", " : ""}${prox.quando}${prox.approx ? " • PREV." : ""}`;
     hero.innerHTML = `
       <div class="hero-top">
-        <span class="pill"><img class="pill-ico" src="${comp.ico}" alt="">${comp.nome} • ${prox.fase}</span>
+        <span class="pill"><img class="pill-ico" src="${comp.ico}" alt="">${comp.nome}${prox.fase ? " • " + prox.fase : ""}</span>
         <span class="pill">${quando}</span>
       </div>
       <div class="teams">
@@ -126,7 +127,11 @@ const VASCO = "vasco-da-gama";
       </div>`;
   }
 
-  renderFilters();
-  renderList();
-  renderHero();
+  window.renderJogos = (novos) => {
+    if (novos) jogos = novos;
+    renderFilters();
+    renderList();
+    renderHero();
+  };
+  window.renderJogos();
 })().catch((e) => console.error("Falha ao carregar jogos:", e));

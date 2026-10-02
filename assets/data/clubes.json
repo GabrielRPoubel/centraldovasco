@@ -33,5 +33,6 @@
   {"slug": "independiente-medellin", "nome": "Independiente Medellín", "tag": "DIM", "escudo": "assets/logos/times/independiente-medellin.png"},
   {"slug": "paysandu", "nome": "Paysandu", "tag": "PAY", "escudo": "assets/logos/times/paysandu.png"},
   {"slug": "boca-juniors", "nome": "Boca Juniors", "tag": "BOC", "escudo": "assets/logos/times/boca-juniors.png"},
-  {"slug": "independiente-santa-fe", "nome": "Independiente Santa Fe", "tag": "SFE", "escudo": "assets/logos/times/independiente-santa-fe.png"}
+  {"slug": "independiente-santa-fe", "nome": "Independiente Santa Fe", "tag": "SFE", "escudo": "assets/logos/times/independiente-santa-fe.png"},
+  {"slug": "montevideo-city-torque", "nome": "Montevideo City Torque", "tag": "TOR", "escudo": "assets/logos/times/montevideo-city-torque.png"}
 ]
