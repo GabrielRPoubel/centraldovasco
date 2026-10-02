@@ -35,7 +35,7 @@ const VASCO = "vasco-da-gama";
     const eu = (s) => (s === VASCO ? ' class="eu"' : "");
     if (g.status === "encerrado") {
       const pen = g.pen ? ` <em>(${g.pen} p)</em>` : "";
-      return `<strong><b${eu(g.casa)}>${cN}</b> ${g.gc}–${g.gv} <b${eu(g.visitante)}>${vN}</b>${pen}</strong>`;
+      return `<strong><b${eu(g.casa)}>${cN}</b><b class="g-placar">${g.gc}–${g.gv}</b><b${eu(g.visitante)}>${vN}</b>${pen}</strong>`;
     }
     return `<strong><b${eu(g.casa)}>${cN}</b> <em>×</em> <b${eu(g.visitante)}>${vN}</b></strong>`;
   }

@@ -41,6 +41,10 @@
 .g-txt strong b { font-weight: 800; }
 .g-txt strong b.eu { color: var(--gold); }
 .g-txt strong em { font-style: normal; color: var(--muted); font-weight: 600; }
+.g-txt strong b.g-placar {
+  font-size: 19px; font-weight: 900; letter-spacing: 1px;
+  color: #fff; padding: 0 10px; font-variant-numeric: tabular-nums;
+}
 .g-txt small {
   display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
   color: var(--muted); font-size: 12px; margin-top: 3px; line-height: 1.4;
@@ -78,5 +82,6 @@
 @media (max-width: 640px) {
   .g-esc { width: 28px; height: 28px; padding: 2px; }
   .g-txt strong { font-size: 13.5px; }
+  .g-txt strong b.g-placar { font-size: 16px; padding: 0 6px; }
   .chip { padding: 7px 11px; font-size: 12px; }
 }
