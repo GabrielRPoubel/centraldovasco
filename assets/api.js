@@ -158,8 +158,8 @@
     const state = (e.status && e.status.state) || "";
     const desc = st.description || "";
     const temPlacar =
-      !!(h.score && (h.score.displayValue || h.score.displayValue === 0)) &&
-      !!(a.score && (a.score.displayValue || a.score.displayValue === 0));
+      !!(h.score && (h.score.displayValue || h.score)) &&
+      !!(a.score && (a.score.displayValue || a.score));
     const ehAoVivo = state === "in" || st.abbreviation === "I" || /progress|half|period/i.test(desc);
     const fim =
       state === "post" ||
@@ -182,10 +182,10 @@
     if (!casa) g.casaNome = nomeTime(h.team);
     if (!visitante) g.visitanteNome = nomeTime(a.team);
     if (fim) {
-      g.gc = parseInt(h.score && h.score.displayValue, 10) || 0;
-      g.gv = parseInt(a.score && a.score.displayValue, 10) || 0;
+      g.gc = parseInt(h.score && (h.score.displayValue || h.score), 10) || 0;
+      g.gv = parseInt(a.score && (a.score.displayValue || a.score), 10) || 0;
     }
-    if (vivo) g.aoVivo = true;
+    if (ehAoVivo) g.aoVivo = true;
     const notas = (c.notes || []).map((n) => n.headline).filter(Boolean).join(" • ");
     if (notas) {
       let o = /1st/i.test(notas) ? "Jogo de ida" : /2nd/i.test(notas) ? "Volta" : notas;
