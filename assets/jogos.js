@@ -55,6 +55,7 @@ const VASCO = "vasco-da-gama";
   }
 
   let filtro = "todos";
+  let abertos = false;
 
   function renderFilters() {
     const el = document.getElementById("filters");
@@ -69,7 +70,7 @@ const VASCO = "vasco-da-gama";
       )
       .join("");
     el.querySelectorAll(".chip").forEach(
-      (b) => (b.onclick = () => { filtro = b.dataset.f; renderFilters(); renderList(); })
+      (b) => (b.onclick = () => { filtro = b.dataset.f; abertos = false; renderFilters(); renderList(); })
     );
   }
 
@@ -84,9 +85,17 @@ const VASCO = "vasco-da-gama";
     const fim = jogos
       .filter((g) => g.status === "encerrado" && passa(g))
       .sort((a, b) => ((a.data || "0000") < (b.data || "0000") ? 1 : -1));
+    // próximos: mostra só os5 primeiros (por data) + "Ver todos"
+    const mostra = abertos ? pend : pend.slice(0, 5);
+    const btn =
+      pend.length > 5
+        ? `<button class="btn more" id="verTodos">${abertos ? "Mostrar menos" : `Ver todos os ${pend.length} jogos`}</button>`
+        : "";
     up.innerHTML = pend.length
-      ? `<h4 class="sec-title">Próximos jogos</h4>` + pend.map(row).join("")
+      ? `<h4 class="sec-title">Próximos jogos</h4>` + mostra.map(row).join("") + btn
       : `<div class="empty">Nenhum jogo pendente nesta competição.</div>`;
+    const bt = document.getElementById("verTodos");
+    if (bt) bt.onclick = () => { abertos = !abertos; renderList(); };
     down.innerHTML = fim.length
       ? `<h4 class="sec-title">Resultados 2026</h4>` + fim.map(row).join("")
       : `<div class="empty">Nenhum resultado nesta competição.</div>`;

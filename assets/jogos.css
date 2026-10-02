@@ -1,5 +1,6 @@
 /* ===== Filtros por competição ===== */
 .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.more { display: block; width: 100%; margin-top: 12px; padding: 12px; text-align: center; }
 .chip {
   display: inline-flex; align-items: center; gap: 7px;
   background: transparent; color: var(--muted);

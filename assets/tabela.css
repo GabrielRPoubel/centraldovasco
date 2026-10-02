@@ -56,6 +56,33 @@
 .t-legend .rebaix { background: var(--red); }
 .t-upd { display: block; margin-top: 8px; font-size: 11px; color: var(--muted); opacity: 0.7; }
 
+/* Subtítulos de grupos (Carioca / Sul-Americana) */
+.t-sub {
+  margin: 16px 0 6px; font-size: 11.5px; font-weight: 800;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* Mata-mata (chaveamento por confronto) */
+.kq {
+  border: 1px solid var(--line); border-radius: 14px;
+  padding: 12px; margin-top: 10px; background: rgba(255, 255, 255, 0.02);
+}
+.kq-teams { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; }
+.kq-teams em { color: var(--muted); font-style: normal; font-weight: 800; font-size: 13px; }
+.kq-t { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.kq-t:last-child { justify-content: flex-end; }
+.kq-t img {
+  width: 26px; height: 26px; border-radius: 7px; object-fit: contain; padding: 3px;
+  background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line); flex-shrink: 0;
+}
+.kq-t b { font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kq-legs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 9px; }
+.kq-leg {
+  font-size: 11.5px; color: var(--muted);
+  background: rgba(255, 255, 255, 0.05); border: 1px solid var(--line);
+  padding: 4px 10px; border-radius: 999px;
+}
+
 @media (max-width: 640px) {
   .t-cols, .t-row { grid-template-columns: 26px 1fr 34px 30px 42px; padding: 8px 6px; gap: 4px; }
   .t-team b { font-size: 13px; }
