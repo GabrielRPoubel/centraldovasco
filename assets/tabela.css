@@ -83,6 +83,30 @@
   padding: 4px 10px; border-radius: 999px;
 }
 
+/* Fases colapsáveis + sub-abas (Todas / Grupos / Mata-mata) */
+.filters.sub { margin: 0 0 14px; }
+.filters.sub .chip { font-size: 12px; padding: 6px 12px; }
+details.t-fase {
+  border: 1px solid var(--line); border-radius: 16px;
+  padding: 0 12px 8px; margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+details.t-fase > summary {
+  list-style: none; cursor: pointer; position: relative;
+  padding-right: 26px; margin-top: 12px;
+}
+details.t-fase > summary::-webkit-details-marker { display: none; }
+details.t-fase > summary::after {
+  content: "▾"; position: absolute; right: 2px; top: 13px;
+  color: var(--muted); font-size: 11px; transition: transform 0.15s;
+}
+details.t-fase:not([open]) > summary::after { transform: rotate(-90deg); }
+.t-fase .t-sub { padding-right: 0; }
+.t-fase .t-fn {
+  float: right; font-style: normal; font-size: 10.5px;
+  font-weight: 700; color: var(--muted); opacity: 0.75; margin-top: 3px;
+}
+
 @media (max-width: 640px) {
   .t-cols, .t-row { grid-template-columns: 26px 1fr 34px 30px 42px; padding: 8px 6px; gap: 4px; }
   .t-team b { font-size: 13px; }

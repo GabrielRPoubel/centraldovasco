@@ -44,9 +44,11 @@
       .join("");
   }
 
+  // time sem escudo resolvido (ex.: "A definir" na final): só o nome
+  const eq = (slug, alt) => (slug ? `<img src="${escT(slug)}" alt="">` : "") + `<b>${nomeT(slug, alt)}</b>`;
+
   function tiesHtml(ties) {
-    if (!ties || !ties.length)
-      return `<div class="empty">Chaveamento ainda não publicado.</div>`;
+    if (!ties || !ties.length) return `<div class="empty">Chaveamento ainda não publicado.</div>`;
     return ties
       .map((t) => {
         const pernas = t.pernas
@@ -57,14 +59,43 @@
           .join("");
         return `<div class="kq">
         <div class="kq-teams">
-          <span class="kq-t"><img src="${escT(t.casa)}" alt=""><b>${nomeT(t.casa)}</b></span>
+          <span class="kq-t">${eq(t.casa, t.casaNome)}</span>
           <em>×</em>
-          <span class="kq-t"><img src="${escT(t.visitante)}" alt=""><b>${nomeT(t.visitante)}</b></span>
+          <span class="kq-t">${eq(t.visitante, t.visitanteNome)}</span>
         </div>
         <div class="kq-legs">${pernas}</div>
       </div>`;
       })
       .join("");
+  }
+
+  /* ---------- fases e sub-abas (Todas / Grupos / Mata-mata / Fases iniciais) ---------- */
+  const ehInicial = (f) => /-round$/.test(f.key || "");
+  const temTies = (f) => f.ties && f.ties.length;
+  const ehMata = (k, f) => !f.grupos && temTies(f) && (k !== "copa" || !ehInicial(f));
+
+  function subsDe(k, fases) {
+    if (k === "bras" || fases.length < 2) return [];
+    const out = [{ id: "todas", nome: "Todas as fases" }];
+    if (fases.some((f) => f.grupos && f.grupos.length)) out.push({ id: "grupos", nome: "Grupos" });
+    if (fases.some((f) => ehMata(k, f))) out.push({ id: "mata", nome: "Mata-mata" });
+    if (k === "copa" && fases.some((f) => ehInicial(f) && temTies(f))) out.push({ id: "iniciais", nome: "Fases iniciais" });
+    return out;
+  }
+
+  function faseHtml(f) {
+    let corpo;
+    if (f.grupos && f.grupos.length) {
+      const zonado = f.grupos.some((g) => g.rows.some((r) => r.zona));
+      corpo =
+        f.grupos
+          .map((g) => `<div class="t-sub">${g.nome}</div>${COLS}${rowsHtml(g.rows)}`)
+          .join("") +
+        `<small class="t-upd">${zonado ? "Azul: classificados • " : ""}Fonte: ESPN</small>`;
+    } else {
+      corpo = tiesHtml(f.ties);
+    }
+    return `<details class="t-fase" open><summary class="t-sub">${f.nome}<i class="t-fn">${f.jogos} ${f.jogos === 1 ? "jogo" : "jogos"}</i></summary>${corpo}</details>`;
   }
 
   function conteudo(k) {
@@ -85,28 +116,35 @@
       </div>
       <small class="t-upd">${upd}</small>`;
     }
-    // extras: carioca / sula / copa
-    const semNada = !d.grupos && !(d.ties && d.ties.length);
-    if (semNada && d.erro) return `<div class="empty">Sem dados agora — tente de novo mais tarde.</div>`;
-    if (semNada && d.carregando) return `<div class="empty">Carregando classificação…</div>`;
-    let h = "";
-    if (k === "copa") {
-      h = `<div class="t-head-pill"><img src="${SECOES.copa.ico}" alt="">Copa do Brasil • Mata-mata</div>` + tiesHtml(d.ties);
+    // copa / sula / carioca: fases + sub-abas
+    const fases = d.fases || [];
+    if (!fases.length) {
+      if (d.erro) return `<div class="empty">Sem dados agora — tente de novo mais tarde.</div>`;
+      if (d.carregando) return `<div class="empty">Carregando fases…</div>`;
+      return "";
     }
-    if (k === "sula") {
-      const g = d.grupos && d.grupos[0];
-      h = `<div class="t-head-pill"><img src="${SECOES.sula.ico}" alt="">Sul-Americana${g ? " • " + g.nome : ""}</div>`;
-      if (g) h += `${COLS}${rowsHtml(g.rows)}<small class="t-upd">Azul: classificados ao mata-mata • Fonte: ESPN</small>`;
-      if (d.ties && d.ties.length) h += `<div class="t-sub">Mata-mata</div>` + tiesHtml(d.ties);
-    }
-    if (k === "carioca") {
-      h = `<div class="t-head-pill"><img src="${SECOES.carioca.ico}" alt="">Carioca 2026 • Grupos (1ª fase)</div>`;
-      if (d.grupos)
-        h += d.grupos
-          .map((gr) => `<div class="t-sub">${gr.nome}</div>${COLS}${rowsHtml(gr.rows)}`)
-          .join("");
-    }
-    return h;
+    const subs = subsDe(k, fases);
+    const sub = d.sub && subs.some((s) => s.id === d.sub) ? d.sub : "todas";
+    let lista = fases;
+    if (sub === "grupos") lista = fases.filter((f) => f.grupos && f.grupos.length);
+    else if (sub === "mata") lista = fases.filter((f) => ehMata(k, f));
+    else if (sub === "iniciais") lista = fases.filter((f) => ehInicial(f) && temTies(f));
+    const pill = `<div class="t-head-pill"><img src="${SECOES[k].ico}" alt="">${SECOES[k].nome} • Fases</div>`;
+    const chips =
+      subs.length > 1
+        ? `<div class="filters sub">` +
+          subs
+            .map(
+              (s) =>
+                `<button class="chip${s.id === sub ? " active" : ""}" data-sub="${s.id}">${s.nome}</button>`
+            )
+            .join("") +
+          `</div>`
+        : "";
+    const corpo = lista.length
+      ? lista.map(faseHtml).join("")
+      : `<div class="empty">Nada por aqui ainda.</div>`;
+    return pill + chips + corpo;
   }
 
   function pintar() {
@@ -118,6 +156,9 @@
       .join("");
     el.innerHTML = `<div class="filters">${chips}</div>` + conteudo(atual);
     el.querySelectorAll("[data-t]").forEach((b) => (b.onclick = () => { atual = b.dataset.t; pintar(); }));
+    el.querySelectorAll("[data-sub]").forEach(
+      (b) => (b.onclick = () => { dados[atual].sub = b.dataset.sub; pintar(); })
+    );
   }
 
   // API ao vivo chama estas duas
@@ -128,7 +169,7 @@
   window.renderTabelaOutra = (k, novo) => {
     const d = dados[k] || (dados[k] = {});
     Object.assign(d, novo);
-    if (d.grupos || (d.ties && d.ties.length) || d.erro) delete d.carregando;
+    if (novo.fases || novo.erro) delete d.carregando;
     if (atual === k) pintar();
   };
 
